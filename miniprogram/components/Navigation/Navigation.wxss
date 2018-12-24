@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  align-items: center;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  background-color: #FFF;
+  z-index: 99999;
+  border-bottom: 1rpx solid #f6f6f6;
+}
+.header .line {
+  border-left: 1rpx solid #f6f6f6;
+  height: 36rpx;
+}
+.header .back, .header .home {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header .title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 138rpx;
+  height: 56rpx;
+  border: 1rpx solid #f6f6f6;
+  border-radius: 32rpx;
+  margin-left: 14rpx;
+  padding: 0 14rpx;
+}
+.header .title-bar  image {
+  width: 32rpx;
+  height: 32rpx;
+  background: transparent;
+  vertical-align: top;
+}
+
+.header .header-title {
+  position: absolute;
+  left: 50%;
+  font-size: 38rpx;
+  transform: translateX(-50%);
+}

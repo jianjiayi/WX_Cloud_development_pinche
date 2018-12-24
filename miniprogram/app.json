@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/authorize/authorize",
+    "pages/chooseLib/chooseLib",
+    "pages/passenger/passenger",
+    "pages/carOwner/carOwner",
+    "pages/myCenter/myCenter",
+    "pages/peopleLookCars/peopleLookCars",
+    "pages/carsLookPeople/carLoolPeople",
+    "pages/NewCarSearch/NewCarSearch",
+    "pages/NewPepleSearch/NewPepleSearch",
+    "pages/tripDetails/tripDetails",
+    "pages/passengersTripDetails/PassengersTripDetails",
+    "pages/webViewPage/webViewPage",
+    "pages/SearchPage/SearchPage",
+    "pages/publishRoadInfo/publishRoadInfo",
+    "pages/ArticleDetails/ArticleDetails",
+    "pages/ExpressNews/ExpressNews",
+    "pages/ReleaseRecord/ReleaseRecord",
+    "pages/AboutUs/AboutUs",
+    "pages/LookTransit/LookTransit"
+  ],
+  "window": {
+    "backgroundColor": "#0091ff",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "我与三人行",
+    "backgroundTextStyle": "light",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#0091ff",
+    "borderStyle": "#9B9B9B",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tab/tab01.png",
+        "selectedIconPath": "images/tab/tab0101.png"
+      },
+      {
+        "text": "快报",
+        "pagePath": "pages/ExpressNews/ExpressNews",
+        "iconPath": "images/tab/tab02.png",
+        "selectedIconPath": "images/tab/tab0201.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/myCenter/myCenter",
+        "iconPath": "images/tab/tab03.png",
+        "selectedIconPath": "images/tab/tab0301.png"
+      }
+    ]
+  }
+}

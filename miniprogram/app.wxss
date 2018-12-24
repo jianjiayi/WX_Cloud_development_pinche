@@ -1,0 +1,49 @@
+/**app.wxss**/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
+.null-view{
+  /* position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 100rpx; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+.null-view .img-view{
+  width: 452rpx;
+  height: 481rpx;
+}
+.null-view .img-view image{
+  width: 100%;
+  height: 100%;
+}
+.null-view .text{
+  font-size: 28rpx;
+  color: #ccc;
+  text-align: center;
+}
+/** 修改button默认的点击态样式类**/
+.button-hover {
+  background-color: #0091ff;
+}
+/** 添加自定义button点击态样式类**/
+.other-button-hover {
+  background-color: #0091ff;
+}
+.loddingText-view{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  height: 50rpx;
+  margin: 30rpx 0;
+  color: #9B9B9B;
+}

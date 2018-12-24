@@ -1,0 +1,71 @@
+<!--miniprogram/pages/ExpressNews/ExpressNews.wxml-->
+<view  style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px">
+  <view class="header" style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px">
+    <navigator class='navigator' url='/pages/publishRoadInfo/publishRoadInfo'>
+      <view class='title'>
+        <image src='../../images/icon/note.png'></image>
+        <text>写点什么...</text>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<view class='content'>
+  <view class='data-list' wx:if="{{list.length != 0 || isLodding }}">
+    <view class='item' wx:for="{{list}}" wx:key="{{index}}" data-id='{{item._id}}' bindtap='bindLookDetail'>
+      <view class='top-view'>
+        <view class='user-info'>
+          <view class='avatar'>
+            <image src='{{item.userInfo.avatarUrl}}'></image>
+          </view>
+          <text class='name'>{{item.userInfo.nickName}}</text>
+        </view>
+        <text class='time'>{{item.sendTime}}</text>
+      </view>
+      
+      <view class='cont-view {{item.imgArray.length == 1 ? "one":""}}'>
+        <view class='title'>{{item.title}}</view>
+        <view wx:if="{{item.imgArray.length}}" class='img-list'>
+          <view class='img-view' wx:for="{{item.imgArray}}" style='background-image:url("{{item}}")'>
+            <image src='{{item}}'></image>
+          </view>
+        </view>
+      </view>
+      <view class='bottom-view'>
+        <view class='address'>
+          <image src='../../images/icon/address1.png'></image>
+          <text class='text'>{{item.location.address}}</text>
+        </view>
+        <view class='btn-group'>
+          <view class='blod eye'>
+            <view class='img'>
+              <image src='../../images/icon/eye.png'></image>
+            </view>
+            <text class='text'>{{postsStatistics[index].view_count ? postsStatistics[index].view_count : 0}}</text>
+          </view>
+          <view class='blod' bindtap='praisePointsTag'>
+            <view class='img'>
+              <image src='{{isPraise ? "../../images/icon/zan1.png" : "../../images/icon/zan2.png"}}'></image>
+            </view>
+            <text class='text'>{{postsStatistics[index].like_count ? postsStatistics[index].like_count : 0}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 没有数据显示 -->
+  <view wx:else class='null-view'>
+    <view class='img-view'>
+      <image src='../../images/icon/null_view.jpg'></image>
+    </view>
+  </view>
+
+  <view class='loddingText-view'>
+    <view wx:if="{{hasMore}}">上拉加载更多</view>
+    <view wx:else >已经到底了</view>
+  </view>
+
+  
+
+</view>

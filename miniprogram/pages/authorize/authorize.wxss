@@ -1,0 +1,65 @@
+/* miniprogram/pages/authorize/authorize.wxss */
+.content{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+}
+.bg_img{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 88;
+}
+.text-view{
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  margin: 0px 30rpx; 
+  flex-direction: column;
+  z-index: 90;
+}
+.text{
+  font-size: 35rpx;
+  color: #fff;
+  line-height: 80rpx;
+  font-weight: 400;
+  letter-spacing: 10rpx;
+}
+.strong{
+  font-size: 40rpx;
+}
+.text:last-child{
+  margin-left: 200rpx;
+}
+.button{
+  position: absolute;
+  bottom: 180rpx;
+  width: 360rpx;
+  height: 80rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30rpx;
+  border: 1px solid #fff;
+  border-radius: 20rpx;
+  color: #fff;
+  display: none;
+  z-index: 99;
+  box-shadow: 0 0 5px #fff;
+  background: hsla(0, 0%, 100%, .1);
+  font-weight: bold;
+}
+.button.active{
+  display: block;
+}

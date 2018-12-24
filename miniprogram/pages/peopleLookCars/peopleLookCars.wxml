@@ -1,0 +1,64 @@
+<!--miniprogram/pages/peopleLookCars/peopleLookCars.wxml-->
+<navigation
+id='Navigation'
+show-icon='{{showIcon}}'
+title="人找车"
+>
+</navigation>
+<view class='container'>
+  <!-- 方向 -->
+  <view wx:if="{{list.length != 0 || isLodding }}" class='list-view'>
+    <view wx:for="{{list}}" wx:key = "index" class='item'>
+      <view>
+        <view class='text-group'>
+          <view class='text-item'>
+            <text class='label'>出发时间</text>
+            <view class='time cont'>
+              <text class='text'>{{item.exactDateTag}} -- {{item.exactTime}}</text>
+            </view>
+          </view>
+          <view class='text-item'>
+            <text class='label'>出行方向</text>
+            <view class='driction cont'>
+              <text class='text'>{{item.startRegion[2]}}</text>
+              <image class='img' src=''></image>
+              <text class='text'>{{item.endRegion[2]}}</text>
+            </view>
+          </view>
+          <view class='text-item'>
+            <text class='label'>人数</text>
+            <text class='cont text'>{{item.peopleNumber}} 人</text>
+          </view>
+        </view>
+        <view class='btn-group'>
+          <view class='publish btn'data-idx='{{index}}' data-id='{{item._id}}' bindtap='publishTap'>发布</view>
+          <view class='delete btn' data-idx='{{index}}' data-id='{{item._id}}' bindtap='deleteTap'>删除</view>
+        </view>
+      </view>
+      <view>
+        <view class='address-view'>
+          <text class='label'>起点</text>
+          <text class='cont text'>{{item.startLocation.name}}</text>
+        </view>
+        <view class='address-view'>
+          <text class='label'>终点</text>
+          <text class='cont text'>{{item.endLocation.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class='null-view'>
+    <view class='img-view'>
+      <image src='../../images/icon/null_view.jpg'></image>
+    </view>
+    <!-- <text class="text">暂无出行信息</text> -->
+  </view>
+
+  <!-- 发起拼车 -->
+  <view class='submit-btn'>
+    <navigator class='navigator' url='/pages/NewCarSearch/NewCarSearch'>
+        新增出行信息
+    </navigator>
+  </view>
+</view>

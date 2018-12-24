@@ -1,0 +1,219 @@
+/* miniprogram/pages/SearchPage/SearchPage.wxss */
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.search-input{
+  flex: 1;
+  height: 30px;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.type{
+  width: 150rpx;
+  font-size: 28rpx; 
+  margin-right: 20rpx;
+}
+.cont{
+  flex: 1;
+  font-size: 28rpx;
+  padding: 30rpx 0 15px 0;
+  color: #1a1a1a;
+}
+.cont .address-view{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+.picker{
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-content: center;
+  border-radius: 10rpx;
+  border: 1px solid #9B9B9B;
+  justify-content: flex-end;
+  height: 28px;
+  overflow: hidden;
+}
+.picker picker{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 28px;
+  text-align: center;
+}
+.picker:after{
+  content: '';
+  display: block;
+  width: 10rpx;
+  height: 10rpx;
+  margin: 10rpx 10rpx 0 10rpx;
+  margin-top: 10px;
+  border-top: 1px solid #9B9B9B ;
+  border-right: 1px solid #9B9B9B ;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg)
+}
+.cont .address-view .dric-img{
+  width: 80rpx;
+  height: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cont .address-view .dric-img image{
+  width: 60rpx;
+  height: 40rpx;
+}
+.search-view{
+  position: fixed;
+  left: 0;
+  top: 100px;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  z-index: 9999;
+  border-top: 1px solid #9B9B9B ;
+}
+.searchBtn{
+  width: 150rpx;
+  height: 30px;
+  margin-right: 20rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: #0091ff;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 30px;
+}
+
+/* 列表信息 */
+.data-list{
+  padding: 0rpx 20rpx;
+  margin-top: 60px;
+}
+.data-list .list-table{
+  margin-top: 20rpx;
+  padding: 0rpx 20rpx;
+  border-radius: 10rpx;
+  background: #ffffff;
+  box-shadow: 0 0 5rpx #ccc;
+}
+.data-list .top-view{
+  height: 100rpx;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+.data-list .headImgName{
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.data-list .headImgName .img{
+  width: 60rpx;
+  height: 60rpx;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+.data-list .headImgName .name{
+  flex: 1;
+  margin-left: 10rpx;
+  font-size: 28rpx;
+  color: #100000;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+}
+.data-list .dreicTel{
+  display: flex;
+  justify-content: flex-ends;
+}
+.data-list .dreicTel .direction{
+  font-size: 26rpx;
+  color: #100000;
+  font-weight: bold;
+}
+.data-list .dreicTel .tel{
+  font-size: 26rpx;
+  color: rgb(0, 118, 252);
+  font-weight: bold;
+}
+.data-list .trip{
+  display: flex;
+  flex-direction: column;
+}
+.data-list .trip>view{
+  margin-bottom: 10rpx;
+}
+.data-list .label{
+  font-size: 26rpx;
+  color: #100000;
+}
+.data-list .set-out{
+  display: flex;
+  margin-bottom: 20rpx;
+  align-items: center;
+}
+.data-list .setOut-time{
+  font-size: 26rpx;
+  color: #100000;
+}
+.data-list .route-line{
+  display: flex;
+}
+.data-list .route-line .route{
+  flex: 1;
+  font-size: 26rpx;
+  color: #100000;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+.data-list .route-item{
+  display: inline-block
+}
+.data-list .route-item:after{
+  content: '';
+  display: inline-block;
+  width: 18rpx;
+  height: 1px;
+  background-color: #9B9B9B;
+  margin-top: -3rpx;
+}
+.data-list .route-item:last-child::after{
+  display: none;
+}
+
+.bottom-view{
+  height: 90rpx;
+  font-size: 24rpx;
+  color: #9B9B9B;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.seat .number{
+  font-size: 30rpx;
+  color: red;
+}
+.null-view{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0rpx;
+}

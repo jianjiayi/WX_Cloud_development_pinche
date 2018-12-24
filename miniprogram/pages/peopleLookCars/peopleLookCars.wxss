@@ -1,0 +1,134 @@
+/* miniprogram/pages/peopleLookCars/peopleLookCars.wxss */
+/* miniprogram/pages/carsLookPeople/carLoolPeople.wxss */
+page {
+  background: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+}
+.container{
+  padding-bottom: 120rpx;
+}
+.list-view{
+  width: 100%;
+  padding: 30rpx 0;
+}
+.item{
+  display: flex;
+  flex-direction: column;
+  margin: 0 30rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  box-shadow: 0 4rpx 4rpx #ccc;
+}
+.item:last-child{
+   margin-bottom: 0;
+}
+.item>view{
+  display: flex;
+  justify-content: space-between;
+}
+.item .text-group{
+  flex: 1;
+}
+.driction .img{
+  width: 50rpx;
+  height: 30rpx;
+}
+.item .btn-group{
+  width: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.item .btn-group .btn{
+  width: 100rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  text-align: center;
+  color: #CC0000;
+  border-radius: 15rpx;
+  margin-bottom: 30rpx;
+  border: 1rpx solid #CC0000;
+}
+.item .btn-group .publish{
+  color: #0091ff;
+  border: 1rpx solid #0091ff;
+}
+.item .text-item{
+  display: flex;
+  flex: 1;
+  margin-bottom: 15rpx;
+}
+.item .label{
+  font-size: 28rpx;
+  color: #535353;
+  width: 130rpx;
+}
+.item .cont{
+  flex: 1;
+  display: flex;
+  font-size: 28rpx;
+  color: #1a1a1a;
+}
+.item .address-view{
+  display: flex;
+  flex: 1;
+}
+.item .address-view .label{
+   width: 80rpx;
+}
+.item .address-view .text{
+  display: flex;
+  width: 220rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 24rpx;
+}
+.item .address-view:last-child .text{
+  margin-right: 0rpx;
+}
+.tips{
+  font-size: 23rpx;
+  color: #FF7B3B;
+  margin-top: 20rpx;
+}
+.cont.trips .add-btn{
+  width: 120rpx;
+  height: 40rpx;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border: 1px solid #0091ff;
+  border-radius: 15rpx;
+  font-size: 24rpx;
+  color: #9B9B9B;
+}
+.submit-btn{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100rpx;
+}
+.submit-btn .navigator{
+  width: 100%;
+  color: #ffffff;
+  background-color: #0091ff;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 30rpx;
+}
+.null-view{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 100rpx;
+}
+

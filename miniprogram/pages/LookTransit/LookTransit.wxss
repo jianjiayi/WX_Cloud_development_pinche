@@ -1,0 +1,38 @@
+/* miniprogram/pages/LookTransit/LookTransit.wxss */
+.content{
+  display: flex;
+  flex-direction: column;
+}
+.list{
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+  justify-content: center;
+  margin-top: 100rpx;
+}
+.item{
+  width: 250rpx;
+  height: 360rpx;
+  box-shadow: 0 0 5px #aaa;
+  font-size: 25rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+.item:last-child{
+  margin-left: 100rpx;
+}
+.item .img-icon{
+  width: 250rpx;
+  height: 300rpx;
+}
+.item .img-icon image{
+  width: 100%;
+  height: 100%;
+}
+.item .text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 60rpx;
+}

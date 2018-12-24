@@ -1,0 +1,59 @@
+<!--miniprogram/pages/ArticleDetails/ArticleDetails.wxml-->
+<navigation
+id='Navigation'
+show-icon='{{showIcon}}'
+title="详情"
+>
+</navigation>
+<view class='content'>
+  <!-- 标题 -->
+  <view class='title'>
+    <text>{{title}}</text>
+  </view>
+  <!-- 作者信息 -->
+  <view class='user-info'>
+    <view class='head-img'>
+      <image src='{{userInfo.avatarUrl}}'></image>
+    </view>
+    <view class='info'>
+      <view class='name-time'>
+        <text class='name'>{{userInfo.nickName}}</text>
+        <text class='time'>{{sendTime}}</text>
+      </view>
+      <view class='address'>
+        <image src='../../images/icon/address.png'></image>
+        <text class='text'>{{location.address}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 文章内容 -->
+  <view class='cont'>
+    <text class='text'>{{contText}}</text>
+    <view wx:for="{{imgArray}}" class='img'  data-src='{{item}}' bindtap='previewImage'>
+      <image src='{{item}}'></image>
+    </view>
+  </view>
+
+
+  <!-- 操作按钮 -->
+  <view class='btn-group'>
+    <view class='blod eye'>
+      <view class='img'>
+        <image src='../../images/icon/eye.png'></image>
+      </view>
+      <text class='text'>{{post.view_count}}</text>
+    </view>
+    <view class='blod' bindtap='praisePointsTag'>
+      <view class='img'>
+        <image src='{{isPraise ? "../../images/icon/zan1.png" : "../../images/icon/zan.png"}}'></image>
+      </view>
+      <text class='text'>{{post.like_count}}</text>
+    </view>
+    <button class='blod' hover-class="other-button-hover" open-type="share">
+      <view class='img'>
+        <image src='../../images/icon/share1.png'></image>
+      </view>
+    </button>
+  </view>
+</view>
+

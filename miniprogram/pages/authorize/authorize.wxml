@@ -1,0 +1,18 @@
+<!--miniprogram/pages/authorize/authorize.wxml-->
+<view wx:if="canIUse">
+  <view class='content'> 
+    <image class='bg_img' src='../../images/icon/authorize_bg.jpg'></image>
+    <view class='text-view'>
+      <text class='text'><text class='strong'>生活</text>,就是晨起暮落;</text>
+      <text class='text'><text class='strong'>日子</text>,就是早出晚归。</text>
+    </view>
+    <button 
+    class='button {{active ? "active" :""}}'
+    open-type='getUserInfo'
+    lang='zh_CN'
+    bindgetuserinfo='bingGetUserInfo'>
+    开始体验
+    </button>
+  </view>
+</view>
+<view wx:else>请升级微信版本</view>

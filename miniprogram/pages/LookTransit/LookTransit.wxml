@@ -1,0 +1,24 @@
+<!--miniprogram/pages/LookTransit/LookTransit.wxml-->
+<navigation
+id='Navigation'
+show-icon='{{showIcon}}'
+title="查公交"
+>
+</navigation>
+
+<view class='content'>
+  <view class='list'>
+    <view class='item' data-id="0" bindtap='bindLookTransit'>
+      <view class='img-icon'>
+        <image src='../../images/icon/jiaoqu_che.jpg'></image>
+      </view>
+      <text class='text'>郊区实时公交</text>
+    </view>
+    <view class='item' data-id="1" bindtap='bindLookTransit'>
+      <view class='img-icon'>
+        <image src='../../images/icon/shiqu_che.jpg'></image>
+      </view>
+      <text class='text'>市区实时公交</text>
+    </view>
+  </view>
+</view>

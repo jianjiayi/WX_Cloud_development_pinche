@@ -1,0 +1,125 @@
+/* miniprogram/pages/publishRoadInfo/publishRoadInfo.wxss */
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+}
+.content .item{
+  display: flex;
+  flex: 1;
+  padding: 20rpx 20rpx;
+  background-color: #ffffff;
+  font-size: 28rpx;
+}
+.content .item:first-child,
+.content .item:last-child{
+  margin-bottom: 20rpx;
+}
+.content .item .label{
+  margin-right: 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #535353;
+}
+.content .item .cont{
+  flex: 1;
+  color: #9B9B9B;
+}
+.content .item .cont input{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.content .item .cont textarea{
+  padding: 25rpx 0;
+  width: auto;
+  height: 150rpx;
+}
+.content .item .cont input,
+.content .item .cont textarea{
+  /* background-color: #f6f6f6; */
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  border-radius: 10rpx;
+}
+.content .item.img-view{
+  padding: 20rpx 10rpx;
+}
+.content .item.img-view .list-img{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.img-item{
+  width: 160rpx;
+  height: 160rpx;
+  padding: 10rpx;
+}
+.img-item .img{
+  width: 100%;
+  height: 100%;
+  background: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-item .img.btn{
+  width: 160rpx;
+  height: 160rpx;
+}
+.img-item .img image{
+  width: 100%;
+  height: 100%;
+}
+.img-item .img.btn image{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.location-view{
+  padding: 10rpx 20rpx;
+  height: 80rpx;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.location-view image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+.location-view .text{
+  font-size: 26rpx;
+  color: #535353;
+  padding: 10rpx 0;
+  display: flex;
+  align-items: center;
+}
+.location-view .text:after{
+    content: '';
+    display: block;
+    width: 14rpx;
+    height: 14rpx;
+    margin-left: 10rpx;
+    border-top: 1px solid #656565;
+    border-right: 1px solid #656565;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg)
+}
+.submit-btn{
+  margin: 100rpx 100rpx;
+  height: 80rpx;
+  background: #0091ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #ffffff;
+  border-radius: 10rpx;
+}

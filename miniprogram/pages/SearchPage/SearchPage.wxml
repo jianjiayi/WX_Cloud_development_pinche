@@ -1,0 +1,117 @@
+<!--miniprogram/pages/SearchPage/SearchPage.wxml-->
+<wxs module="dateUtil" src="../../filter/timeUtil.wxs"></wxs>
+
+<navigation
+id='Navigation'
+show-icon='{{showIcon}}'
+title="搜索"
+>
+</navigation>
+<view class='content'>
+  <!-- 搜索框 -->
+  <view class='search-view' style='top:{{navBarHeight}}px'>
+    <view class='search-input'>
+      <!-- 搜索类型 -->
+      <view class='type'>
+        <view class='picker'>
+          <picker bindchange="bindTypeChange" value="{{typeIndex}}" range="{{typeArray}}">
+              {{typeArray[typeIndex]}}
+          </picker>
+        </view>
+      </view>
+      
+      <view class='cont direction'>
+        <view class='address-view'>
+          <!-- 出发城市 -->
+          <view class='picker'>
+            <picker
+              mode="region"
+              bindchange="startRegionChange" 
+              value="{{startRegion}}" 
+              custom-item="{{customItem}}">
+              {{startRegion[2]}}
+            </picker>
+          </view>
+          <!-- 出行方向 -->
+          <view class='dric-img'>
+            <image  src='../../images/icon/cars.png'></image>
+          </view>
+          <!-- 目的地城市 -->
+          <view class="picker">
+            <picker 
+              mode="region"
+              bindchange="endRegionChange" 
+              value="{{endRegion}}">
+              {{endRegion[2]}}
+            </picker>
+          </view>
+        </view>
+        <!-- <text class='tips'>*目前拼车范围仅支持北京、廊坊地区*</text> -->
+      </view>
+    </view>
+   
+    <!-- 按钮 -->
+    <view class='searchBtn' bindtap='onSubmitTap'>搜索</view>
+  </view>
+  <!-- 列表信息 -->
+  <!-- 内容 -->
+  <view class='data-list' wx:if="{{list.length != 0 || isLodding }}">
+      <view wx:for="{{list}}" wx:key="{{index}}" data-id="{{item._id}}" data-idx="{{index}}" class='list-table' bindtap='lookTripDetails'>
+      <!-- 顶部信息 -->
+      <view class='top-view'>
+        <!-- 头像+昵称 -->
+        <view class='headImgName'>
+          <image class='img' src='{{item.userInfo.avatarUrl}}'></image>
+          <text class='name'>{{item.userInfo.nickName}}</text>
+        </view>
+        <!--方向+电话 -->
+        <view class='dreicTel'>
+          <text class='tel'>预约</text>
+        </view>
+      </view>
+      <!-- 行车路线 -->
+      <view class='trip'>
+        <view class='set-out'>
+          <text class='label'>时间：</text>
+          <text class='setOut-time'>{{dateUtil.dateFormat(item.exactDate)}}</text>
+        </view>
+        <view class='route-line'>
+          <text class='label'>起点：</text>
+          <text class='route'>{{item.startLocation.name}} </text>
+        </view>
+        <view wx:if="{{item.tripsArray}}" class='route-line'>
+          <text class='label'>途径：</text>
+          <view class='route'>
+            <text class='route-item' wx:for="{{item.tripsArray}}">{{item.name}} </text>
+          </view>
+        </view>
+        <view class='route-line'>
+          <text class='label'>终点：</text>
+          <text class='route'>{{item.endLocation.name}} </text>
+        </view>
+        <view class='route-line'>
+          <text class='label'>预算：</text>
+          <text class='route'>{{item.budget}} 元/人</text>
+        </view>
+      </view>
+      <!-- 底部信息 -->
+      <view class='bottom-view'>
+        <text class='send-time'>备注:{{item.remarks}}</text>
+        <text class='seat'>座位：<text class='number'>{{item.peopleNumber}}</text> 个   </text>
+      </view>
+    </view>
+
+    <view class='loddingText-view'>
+      <view wx:if="{{hasMore}}">上拉加载更多</view>
+      <view wx:else >已经到底了</view>
+    </view>
+  </view>
+  
+  <!-- 没有数据显示 -->
+  <view wx:else class='null-view'>
+    <view class='img-view'>
+      <image src='../../images/icon/null_view.jpg'></image>
+    </view>
+    <!-- <text class="text">暂无出行信息</text> -->
+  </view>
+</view>

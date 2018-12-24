@@ -1,0 +1,137 @@
+
+<!--index.wxml-->
+<wxs module="dateUtil" src="../../filter/timeUtil.wxs"></wxs>
+
+<!-- 导航栏 -->
+<view class='topNavBar' style="height:{{titleBarHeight+44}}px;padding-top:{{statusBarHeight}}px">
+  <view class='search'>
+    <view class='searchbox' bindtap='bindSearchTap'>
+      <image class='searchicon' src='../../images/icon/search.png'></image>
+      <text class='searchinput'>选择出行方向、地点...</text>
+    </view>
+  </view>
+  <scroll-view scrpll-x="true" class='nav' scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+    <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem">
+      <view class='nav-item {{currentNavTab == idx ? "active" :""}}' data-current="{{idx}}" bindtap='switchNav'>{{navItem}}</view>
+    </block>
+  </scroll-view>
+</view>
+
+<view class="layout" style="padding-top:{{navBarHeight+44}}px">
+  <!-- 轮播图 -->
+  <swiper class='banner' indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" circular='{{true}}' interval="{{interval}}" duration="{{duration}}" current="{{swiperCurrent}}"  bindchange="swiperChange">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" bindtap="swipclick"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 最新头条路况 -->
+  <view class='hot-info-view'>
+    <view class='icon'>
+      <image src='../../images/icon/hot-icon.png'></image>
+    </view>
+    <view class='hot-view'>
+      <swiper class='swiper-box' autoplay='{{true}}' interval='2000' vertical='{{true}}' circular='{{true}}' current='{{hotCurrent}}' bindchange='hotSwiperChange'>
+        <swiper-item class='item' wx:for='{{hotList}}' bindtap="hotNewsClick">{{item.title}}</swiper-item>
+      </swiper>
+    </view>
+  </view>
+  <!-- 内容 -->
+  <view class='data-list' wx:if="{{list.length != 0 || isLodding }}">
+      <view wx:for="{{list}}" wx:key="{{index}}" data-id="{{item._id}}" data-idx="{{index}}" class='list-table' bindtap='lookTripDetails'>
+      <!-- 顶部信息 -->
+      <view class='top-view'>
+        <!-- 头像+昵称 -->
+        <view class='headImgName'>
+          <image class='img' src='{{item.userInfo.avatarUrl}}'></image>
+          <text class='name'>{{item.userInfo.nickName}}</text>
+        </view>
+        <!--方向+电话 -->
+        <view class='dreicTel'>
+          <text class='direction'>{{item.startRegion[2]}}->{{item.endRegion[2]}}</text>
+          <text class='tel'>预约</text>
+        </view>
+      </view>
+      <!-- 行车路线 -->
+      <view class='trip'>
+        <view class='set-out'>
+          <text class='label'>时间：</text>
+          <text class='setOut-time'>{{dateUtil.dateFormat(item.exactDate)}}</text>
+        </view>
+        <view class='route-line'>
+          <text class='label'>起点：</text>
+          <text class='route'>{{item.startLocation.name}} </text>
+        </view>
+        <view wx:if="{{item.tripsArray}}" class='route-line'>
+          <text class='label'>途径：</text>
+          <view class='route'>
+            <text class='route-item' wx:for="{{item.tripsArray}}">{{item.name}} </text>
+          </view>
+        </view>
+        <view class='route-line'>
+          <text class='label'>终点：</text>
+          <text class='route'>{{item.endLocation.name}} </text>
+        </view>
+        <view class='route-line'>
+          <text class='label'>预算：</text>
+          <text class='route'>{{item.budget}} 元/人</text>
+        </view>
+      </view>
+      <!-- 底部信息 -->
+      <view class='bottom-view'>
+        <text class='send-time'>备注:{{item.remarks}}</text>
+        <text class='seat'>座位：<text class='number'>{{item.peopleNumber}}</text> 个   </text>
+      </view>
+    </view>
+
+    <view class='loddingText-view'>
+      <view wx:if="{{hasMore}}">上拉加载更多</view>
+      <view wx:else >已经到底了</view>
+    </view>
+  </view>
+  
+  <!-- 没有数据显示 -->
+  <view wx:else class='null-view'>
+    <view class='img-view'>
+      <image src='../../images/icon/null_view.jpg'></image>
+    </view>
+    <!-- <text class="text">暂无出行信息</text> -->
+  </view>
+
+  <!-- 透明遮盖层，用于退出评分层 -->
+  <view bindtouchmove="hideModal"  bindtap="hideModal" class="touming-view" style='height:{{windowHeight}}px' wx:if="{{status == 'on'}}">   
+  </view>  
+
+
+  <!-- 发布信息组件 -->
+  <view class='publish-btn'>
+    <view class='right-view'></view>
+    <view class='edit-btn blod-view' bindtap='trigger'>
+      <image class='edit-icon {{status}}' src='../../images/icon/publish.png'></image>
+      <image class='close-icon {{status}}' src='../../images/icon/close.png'></image>
+    </view>
+    <!-- 人找车 -->
+    <view class='rc blod-view {{status}}'>
+      <navigator class='navigator' url='/pages/peopleLookCars/peopleLookCars'>
+        <image class='img' src='../../images/icon/rc.png'></image>
+      </navigator>
+    </view>
+    <!-- 车找人 -->
+    <view class='cr blod-view {{status}}'>
+      <navigator class='navigator' url='/pages/carsLookPeople/carLoolPeople'>
+        <image class='img' src='../../images/icon/cr.png'></image>
+      </navigator>
+    </view>
+    <!-- 爆料路况 -->
+    <view class='bl blod-view {{status}}'>
+      <navigator class='navigator' url='/pages/publishRoadInfo/publishRoadInfo'>
+        <image class='img' src='../../images/icon/pl.png'></image>
+      </navigator>
+    </view>
+  </view>
+
+</view>
+
+

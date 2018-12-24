@@ -1,0 +1,16 @@
+<!--miniprogram/pages/AboutUs/AboutUs.wxml-->
+<navigation
+id='Navigation'
+show-icon='{{showIcon}}'
+title="关于我们"
+>
+</navigation>
+
+<view class='logo'>
+  <image src='../../images/icon/us_logo.png'></image>
+</view>
+
+<view class='cont-text'>
+  <text>   “我与三人行”始终奉行免费的服务宗旨，为广大出行人员提供更为方便快捷、准确的信息.</text>
+  <text class="right-text">—— 皮球科技</text>
+</view>

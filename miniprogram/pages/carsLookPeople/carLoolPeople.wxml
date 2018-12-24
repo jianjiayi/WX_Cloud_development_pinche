@@ -1,0 +1,75 @@
+<!--miniprogram/pages/peopleLookCars/peopleLookCars.wxml-->
+<navigation
+id='Navigation'
+show-icon='{{showIcon}}'
+title="车找人"
+>
+</navigation>
+<view class='container'>
+  <!-- 方向 -->
+  <view wx:if="{{list.length != 0 || isLodding}}" class='list-view'>
+    <view class='item-view' wx:for="{{list}}" wx:key = "index">
+      
+      <view class='info'>
+        <view class='delete-btn' data-idx='{{index}}' data-id='{{item._id}}' bindtap='deleteTap'>
+        <image src='../../images/icon/del.png'></image>
+      </view>
+        <view class='item'>
+          <view class='text-view'>
+            <text class='label'>方向</text>
+            <text class='text'>{{item.startRegion[2]}}—{{item.endRegion[2]}}</text>
+          </view>
+          <view class='text-view'>
+            <text class='label'>时间</text>
+            <text class='text'>{{item.exactDateTag}}—{{item.exactTime}}</text>
+          </view>
+        </view>
+        <view class='item'>
+          <view class='text-view'>
+            <text class='label'>起点</text>
+            <text class='text'>{{item.startLocation.name}}</text>
+          </view>
+          <view class='text-view'>
+            <text class='label'>终点</text>
+            <text class='text'>{{item.endLocation.name}}</text>
+          </view>
+        </view>
+        <view class='item'>
+          <view class='text-view'>
+            <text class='label'>座位</text>
+            <text class='text'>{{item.peopleNumber}} 个</text>
+          </view>
+          <view class='text-view'>
+            <text class='label'>路况</text>
+            <text class='text'>{{item.isSpeed}}</text>
+          </view>
+        </view>
+        <view class='item'>
+          <view class='text-view'>
+            <text class='label'>停车点</text>
+            <view class='cont'>
+              <text class='text'wx:for="{{item.tripsArray}}">{{item.name}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='btn-group'>
+        <view class='button'data-idx='{{index}}' data-id='{{item._id}}' bindtap='publishTap'>发布</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class='null-view'>
+    <view class='img-view'>
+      <image src='../../images/icon/null_view.jpg'></image>
+    </view>
+    <!-- <text class="text">暂无出行信息</text> -->
+  </view>
+
+  <!-- 发起拼车 -->
+  <view class='submit-btn'>
+    <navigator class='navigator' url='/pages/NewPepleSearch/NewPepleSearch'>
+        新增出行信息
+    </navigator>
+  </view>
+</view>

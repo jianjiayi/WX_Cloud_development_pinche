@@ -1,0 +1,43 @@
+<!--miniprogram/pages/publishRoadInfo/publishRoadInfo.wxml-->
+<navigation
+id='Navigation'
+show-icon='{{showIcon}}'
+title="发布信息"
+>
+</navigation>
+<view class='content'>
+  <view class='item'>
+    <text class='label'>标 题 :</text>
+    <view class='cont'>
+      <input bindinput="inputedit" data-name="title" placeholder='请输入标题' value='{{title}}'></input>
+    </view>
+  </view>
+  <view class='item'>
+    <text class='label'>内 容 :</text>
+    <view class='cont'>
+      <textarea bindinput="inputedit" data-name="contText"  placeholder="请输入..." value='{{contText}}'/>
+    </view>
+  </view>
+  <view class='item img-view'>
+    <view class='cont list-img'>
+      <view wx:for="{{imgArray}}" wx:key="{{index}}" class='img-item' >
+        <view class='img' data-src='{{item}}' bindtap='previewImage'>
+           <image src='{{item}}'></image>
+        </view>
+      </view>
+      <view class='img-item' >
+        <view class='img btn' bindtap='doUploadImg'>
+           <image src='../../images/icon/photo.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='location-view' bindtap='doChoseLocation'>
+    <image src='../../images/icon/address.png'></image>
+    <text wx:if="{{location.address}}" class='text'>{{location.address}}</text>
+    <text wx:else class='text'>定位</text>
+  </view>
+
+  <view class='submit-btn' bindtap='submitTap'>发布</view>
+</view>

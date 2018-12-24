@@ -1,0 +1,159 @@
+<!--miniprogram/pages/carsLookPeople/carLoolPeople.wxml-->
+<navigation
+id='Navigation'
+show-icon='{{showIcon}}'
+title="添加车找人信息"
+>
+</navigation>
+<view class='container'>
+  <!-- 方向 -->
+  <view class='list-view'>
+    <view class='item'>
+      <text class='label'>出行方向</text>
+      <view class='cont direction'>
+        <view class='address-view'>
+          <!-- 出发城市 -->
+          <view class='picker'>
+            <picker 
+              mode="region"
+              bindchange="startRegionChange" 
+              value="{{startRegion}}" 
+              custom-item="{{customItem}}">
+              {{startRegion[2]}}
+            </picker>
+          </view>
+          <!-- 出行方向 -->
+          <view class='dric-img'>
+            <image src='../../images/icon/cars.png'></image>
+          </view>
+          <!-- 目的地城市 -->
+          <view class='picker'>
+            <picker 
+              class="end"
+              mode="region"
+              bindchange="endRegionChange" 
+              value="{{endRegion}}">
+              {{endRegion[2]}}
+            </picker>
+          </view>
+        </view>
+        <!-- <text class='tips'>*目前拼车范围仅支持北京、廊坊地区*</text> -->
+      </view>
+    </view>
+  </view>
+
+  <view class='list-view'>
+    <!-- 时间 -->
+    <view class='item'>
+      <text class='label'>出发时间</text>
+      <view class='cont time-picker'>
+        <!-- 日期选择器 -->
+        <view class='picker'>
+          <picker bindchange="bindPickerChange" value="{{dateIndex}}" range="{{dateArray}}">
+              {{dateArray[dateIndex]}}
+          </picker>
+        </view>
+        <!-- 时间选择器 -->
+        <view class='picker'>
+          <picker mode="time" value="{{exactTime}}" start="05:01" end="23:01" bindchange="bindTimeChange">
+              {{exactTime}}
+          </picker>
+        </view>
+      </view>
+    </view>
+    <!-- 上车地点 -->
+    <view class='item'>
+      <text class='label'>起点</text>
+      <view class='cont link' bindtap="chooseStartMapTap">
+        <text wx:if="{{!startLocation.name}}"  class='text placeholder'>请选择出发地点</text>
+        <text wx:else class='text'>{{startLocation.name}}</text>
+      </view>
+    </view>
+    <!-- 下车地点 -->
+    <view class='item'>
+      <text class='label'>终点</text>
+      <view class='cont link' bindtap="chooseEndtMapTap">
+        <text wx:if="{{!endLocation.name}}" class='text placeholder'>请选择到达地点</text>
+        <text wx:else class='text'>{{endLocation.name}}</text>
+      </view>
+    </view>
+    <!-- 中途停车 -->
+    <view class='item'>
+      <text class='label'>中途停车</text>
+      <view class='cont trips'>
+        <!-- 停车地点 -->
+        <view class='trips-item' wx:for="{{tripsArray}}" wx:key = "index">
+          <view class='name'>
+            <text>{{item.name}}</text>
+          </view>
+          <view class='operate'>
+            <view class='edit icon' data-idx='{{index}}' bindtap="changeTripsItem">
+              <image src='../../images/icon/edit.png'></image>
+            </view>
+            <view class='delt icon' data-idx='{{index}}' bindtap="delTripsItem">
+              <image src='../../images/icon/delete.png'></image>
+            </view>
+          </view>
+        </view>
+        <!-- 添加按钮 -->
+        <view class='add-btn' bindtap="addTripsItem">
+          <image class='icon' src='../../images/icon/add.png'></image>
+          <text>添加</text>
+        </view>
+      </view>
+    </view>
+    <!-- 是否高速 -->
+    <view class='item'>
+      <text class='label'>是否高速</text>
+      <view class='cont'>
+        <radio-group class="radio-group" bindchange="isSpeedChange">
+          <label class="radio" wx:for="{{isSpeed}}">
+            <radio color='#0091ff' value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <!-- 人数 -->
+    <view class='item'>
+      <text class='label'>人数</text>
+      <view class='cont'>
+        <view class='input-view'>
+          <input type="number" bindinput="inputedit" data-name="peopleNumber" placeholder='输入拼车人数' value="{{peopleNumber}}"/>
+          <text class='text'>人</text>
+        </view>
+      </view>
+    </view>
+    <!-- 联系电话 -->
+    <view class='item'>
+      <text class='label'>联系电话</text>
+      <view class='cont'>
+        <view class='input-view'>
+          <input type="number" bindinput="inputedit" data-name="phoneNumber" placeholder='请输入手机号' value="{{phoneNumber}}"/>
+          <text class='text'>人</text>
+        </view>
+      </view>
+    </view>
+    <!-- 预算 -->
+    <view class='item'>
+      <text class='label'>预算</text>
+      <view class='cont price'>
+        <view class='input-view'>
+          <input type="number" bindinput="inputedit" data-name="budget" placeholder='输入预算金额' value="{{budget}}"/>
+          <text class='text'>元/人</text>
+        </view>
+        <text class='tips'>*预算金额 ≠ 实际结算金额，上车前请与车主协商*</text>
+      </view>
+    </view>
+    <!-- 备注 -->
+    <view class='item'>
+      <text class='label'>备注</text>
+      <view class='cont price'>
+        <textarea class='remark' bindinput="inputedit" data-name="remarks" placeholder="请输入..." value='{{remarks}}'/>
+      </view>
+    </view>
+  </view>
+
+  <!-- 发起拼车 -->
+  <view class='submit-btn' bindtap='submitTap'>添加</view>
+</view>
+

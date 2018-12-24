@@ -1,0 +1,27 @@
+<view class='user-info-view' style='background-image:url("https://7069-piqiukeji-67cad7-1258173401.tcb.qcloud.la/uploadImage/road_onYt75ZYoT5fIgAqjhlOF3xga63I1545637264457.jpg?sign=04f4d64ca2ac8f67961c2cec6c667b55&t=1545637308");padding-top:{{navBarHeight}}px'>
+  <view class='top-view'>
+    <view class='user-info'>
+        <image class='img' src='{{userInfo.avatarUrl}}'></image>
+        <text class='name'>{{userInfo.nickName}}</text>
+      </view>
+  </view>
+</view>
+  
+
+<view class="container">
+  <!-- 列表 -->
+  <view class='group-list'>
+    <!-- <navigator class='list' url='/pages/ReleaseRecord/ReleaseRecord'>
+      <view class='item'>
+        <text class='lable-text'>发布记录</text>
+      </view>
+    </navigator> -->
+    <navigator class='list' url='/pages/AboutUs/AboutUs'>
+      <view class='item'>
+        <text class='lable-text'>关于我们</text>
+      </view>
+    </navigator>
+    <button class='list button' open-type="contact" >意见反馈</button>
+  </view>
+  
+</view>

@@ -1,0 +1,31 @@
+/* miniprogram/pages/AboutUs/AboutUs.wxss */
+.logo{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100rpx;
+}
+.logo image{
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.cont-text{
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  font-size: 28rpx;
+  line-height: 45rpx;
+}
+.cont-text text{
+  flex: 1;
+  text-indent: 50rpx;
+}
+.right-text{
+  text-indent: 0;
+  margin-top: 40rpx;
+  text-align: right;
+  margin-right: 20rpx;
+}

@@ -1,0 +1,207 @@
+/* miniprogram/pages/peopleLookCars/peopleLookCars.wxss */
+/* miniprogram/pages/carsLookPeople/carLoolPeople.wxss */
+page {
+  background: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+}
+.container{
+  padding-bottom: 120rpx;
+}
+.list-view{
+  width: 100%;
+  padding: 30rpx 0;
+  margin-bottom: 30rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.item{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 30rpx;
+  border-bottom: 1px solid #f7f7f7;
+}
+.item:last-child{
+   border:none;
+   padding-bottom: 0;
+   margin-bottom: 0;
+}
+.label{
+  font-size: 28rpx;
+  color: #535353;
+  padding: 30rpx 10rpx 15px 0;
+  width: 130rpx;
+}
+.cont{
+  flex: 1;
+  font-size: 28rpx;
+  padding: 30rpx 0 15px 0;
+  color: #1a1a1a;
+}
+.cont .address-view{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+.picker{
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-content: center;
+  border-radius: 10rpx;
+  border: 1px solid #9B9B9B;
+  justify-content: flex-end;
+  height: 40rpx;
+}
+.picker picker{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+.picker:after{
+  content: '';
+  display: block;
+  width: 10rpx;
+  height: 10rpx;
+  margin: 10rpx 20rpx 0 20rpx;
+  border-top: 1px solid #9B9B9B ;
+  border-right: 1px solid #9B9B9B ;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg)
+}
+.cont .address-view .dric-img{
+  width: 140rpx;
+  height: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cont .address-view .dric-img image{
+  width: 60rpx;
+  height: 40rpx;
+}
+.time-picker{
+  display: flex;
+  flex: 1;
+  align-content: center;
+  justify-content: space-between;
+}
+.time-picker .picker:first-child{
+  margin-right: 100rpx;
+}
+
+
+.cont.link{
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+.cont.link text{
+  flex: 1;
+}
+.cont.link text.placeholder{
+  color: #9B9B9B;
+}
+.cont.link:after{
+  content: '';
+  display: block;
+  width: 18rpx;
+  height: 18rpx;
+  margin-top: 9rpx;
+  border-top: 1px solid #9B9B9B ;
+  border-right: 1px solid #9B9B9B ;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg)
+}
+.cont.price{
+  display: flex;
+  flex-direction: column;
+}
+.input-view{
+  display: flex;
+  align-content: center;
+}
+.input-view input{
+  flex: 1;
+  margin-top: -3rpx;
+}
+.tips{
+  font-size: 23rpx;
+  color: #FF7B3B;
+  margin-top: 20rpx;
+}
+cont.trips{
+  display: flex;
+  flex: 1;
+}
+.cont.trips .trips-item{
+  display: flex;
+  flex: 1;
+  align-content: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.cont.trips .trips-item .name{
+  width: 400rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cont.trips .trips-item .operate{
+  width: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.cont.trips .trips-item .operate .icon{
+  width: 30rpx;
+  height: 30rpx;
+}
+.cont.trips .trips-item .operate .icon image{
+  width: 100%;
+  height: 100%;
+}
+.cont.trips .add-btn{
+  width: 120rpx;
+  height: 40rpx;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border: 1px solid #0091ff;
+  border-radius: 15rpx;
+  font-size: 24rpx;
+  color: #9B9B9B;
+}
+.cont.trips .add-btn .icon{
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+  margin-top: 3rpx;
+}
+
+.remark{
+  height: 120rpx;
+  padding: 10rpx 10rpx;
+  font-size: 28rpx;
+  color: #1a1a1a;
+  background: #eee;
+  width: auto;
+}
+
+.submit-btn{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100rpx;
+  color: #ffffff;
+  background-color: #0091ff;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  z-index: 99999;
+}

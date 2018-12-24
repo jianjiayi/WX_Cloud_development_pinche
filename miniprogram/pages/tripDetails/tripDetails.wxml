@@ -1,0 +1,96 @@
+<!--miniprogram/pages/tripDetails/tripDetails.wxml-->
+<wxs module="dateUtil" src="../../filter/timeUtil.wxs"></wxs>
+
+<!-- 返回按钮 -->
+  <cover-view class='back-btn'>
+    <cover-image class='icon' src='https://dn-testimage.qbox.me/Files/08/6b/086b8e19c7a5aa031dc4df31ca8b53ac2ed32212_644.png'></cover-image>
+  </cover-view>
+
+<view class='container'>
+  <!-- 地图 -->
+  <map id="myMap" style="width:{{mapWidth}}rpx;height:{{mapHeight}}rpx" show-location="true" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" markers="{{markers}}" bindmarkertap="bindMarkertap" bindcontroltap="controlTap" bindregionchange="regionChange" controls="{{controls}}" polyline="{{polyline}}" include-points="{{includePoints}}">
+  
+  </map>
+
+  <!-- 具体详情 -->
+  <view class='info-view'>  
+    <!-- 车主头像、昵称 -->
+    <view class='top-view'>
+      <view class='user-info'>
+        <image class='img' src='{{userInfo.avatarUrl}}'></image>
+        <text class='name'>{{userInfo.nickName}}</text>
+      </view>
+    </view>
+    
+    <view class='cont-view'>
+      <!-- 发布信息 -->
+      <view class='trip-info'>
+        <view class='item'>
+          <text class='label'>出行方向</text>
+          <text class='text'>{{startCity}}->{{endCity}}</text>
+        </view>
+        <view class='item'>
+          <text class='label'>出发时间</text>
+          <text class='text'>{{dateUtil.dateFormat(exactDate)}}</text>
+        </view>
+        <view class='item address'>
+          <view class='address-view'>
+            <text class='label'>起点</text>
+            <text class='text'>{{startLocation.name}}</text>
+          </view>|
+          <view class='address-view'>
+            <text class='label'>终点</text>
+            <text class='text'>{{endLocation.name}}</text>
+          </view>
+        </view>
+        <view class='item'>
+          <text class='label'>停车地点</text>
+          <view class='cont trips'>
+            <!-- 停车地点 -->
+            <view class='trips-item' wx:for="{{tripsArray}}" wx:key = "index">
+              <view class='name'>
+                <text>{{item.name}}</text>
+              </view>
+              <view class='operate' data-idx='{{index}}' bindtap="openLocationTap">
+                <image src='../../images/icon/navIcon.png'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='item'>
+          <text class='label'>剩余座位</text>
+          <text class='text'>{{peopleNumber}} 个</text>
+        </view>
+        <view class='item'>
+          <text class='label'>单价</text>
+          <text class='text'>{{budget}} 元/人</text>
+        </view>
+        <view class='item'>
+          <text class='label'>备注</text>
+          <text class='text'>{{remarks}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 预约按钮 -->
+  <view class='make-btn' >
+    <view class='left-btn'>
+      <view class='back' bindtap='bindGoBack'>
+        <image src='../../images/icon/back.png'></image>
+      </view>
+      <view class='home' bindtap='bindGoHome'>
+        <image src='../../images/icon/home3.png'></image>
+      </view>
+    </view>
+    <view class='tel' bindtap='bindMakePhoneCall'>
+      <image src='../../images/icon/tel3.png'></image>
+      <text class='text'>马上预约</text>
+    </view>
+    <button class='share' hover-class="other-button-hover" open-type="share">
+      <image src='../../images/icon/share3.png'></image>
+    </button>
+  </view>
+</view>
+
+  

@@ -1,0 +1,10 @@
+<view  style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px">
+  <view class="header" style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px">
+    <view wx:if="{{showIcon}}" class="title-bar">
+      <view class="back" bindtap="headerBack"><image src="https://dn-testimage.qbox.me/Files/08/6b/086b8e19c7a5aa031dc4df31ca8b53ac2ed32212_644.png"></image></view>
+      <view class="line"></view>
+      <view class="home" bindtap="headerHome"><image src="https://dn-testimage.qbox.me/Files/fc/49/fc4958729bf1937667b68c78f495edeafe30f339_1030.png"></image></view>
+    </view>
+    <view class="header-title">{{title}}</view>
+  </view>
+</view>

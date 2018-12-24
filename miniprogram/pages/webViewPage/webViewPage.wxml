@@ -1,0 +1,11 @@
+<!--miniprogram/pages/webViewPage/webViewPage.wxml-->
+<navigation
+id='Navigation'
+show-icon='{{showIcon}}'
+title="第三方"
+>
+</navigation>
+<view class="content" style='padding-top:100px'>
+  <web-view class='web-view'  src="{{url}}"></web-view>
+</view>
+

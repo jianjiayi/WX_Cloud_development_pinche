@@ -1,0 +1,6 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 10
+}

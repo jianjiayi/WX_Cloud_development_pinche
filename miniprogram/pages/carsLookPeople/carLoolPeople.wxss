@@ -1,0 +1,116 @@
+/* miniprogram/pages/peopleLookCars/peopleLookCars.wxss */
+/* miniprogram/pages/carsLookPeople/carLoolPeople.wxss */
+page {
+  background: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+}
+.container{
+  padding-bottom: 120rpx;
+}
+.list-view{
+  width: 100%;
+  padding: 30rpx 0;
+}
+.item-view{
+  display: flex;
+  flex-direction: column;
+  margin: 0 30rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  box-shadow: 0 4rpx 4rpx #ccc;
+}
+.item-view:last-child{
+   margin-bottom: 0;
+}
+.item-view .info{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.delete-btn{
+  position: absolute;
+  right: -30rpx;
+  top: -30rpx;
+  width: 50rpx;
+  height: 50rpx;
+  background-color: #ffffff;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.delete-btn image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.item-view .info{
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #ccc;
+}
+.item-view .info .item{
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.item-view .info .item .text-view{
+  flex: 1;
+  display: flex;
+}
+.item-view .info .item .text-view .label{
+  font-size: 28rpx;
+  color: #535353;
+  height: 30rpx;
+  margin-right: 20rpx;
+  line-height: 30rpx;
+}
+.item-view .info .item .text-view .text{
+  flex: 1;
+  display: flex;
+  font-size: 26rpx;
+  color: #1a1a1a;
+  line-height: 30rpx;
+}
+.btn-group{
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content:flex-end;
+  padding-top: 20rpx;
+}
+.btn-group .button{
+  font-size: 26rpx;
+  color: #0091ff;
+  line-height: 30rpx;
+  padding: 10rpx 30rpx;
+  border-radius: 10rpx;
+  border: 1px solid #0091ff;
+}
+.submit-btn{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100rpx;
+  z-index: 999999;
+}
+.submit-btn .navigator{
+  width: 100%;
+  color: #ffffff;
+  background-color: #0091ff;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 30rpx;
+}
+.null-view{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 100rpx;
+}

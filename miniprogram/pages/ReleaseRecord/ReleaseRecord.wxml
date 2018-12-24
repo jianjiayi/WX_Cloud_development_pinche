@@ -1,0 +1,8 @@
+<!--miniprogram/pages/ReleaseRecord/ReleaseRecord.wxml-->
+<navigation
+id='Navigation'
+show-icon='{{showIcon}}'
+title="发布记录"
+>
+</navigation>
+

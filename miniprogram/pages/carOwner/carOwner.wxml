@@ -1,0 +1,115 @@
+
+<!--index.wxml-->
+<wxs module="dateUtil" src="../../filter/timeUtil.wxs"></wxs>
+
+<view class="container">
+
+  <!-- 顶部工具栏 -->
+  <view class='topView'>
+    <!-- 头像 -->
+    <!-- <button class='userinfobtn'
+    style="background-image: url('../../images/icon/user.png')">
+    </button> -->
+    <!-- 搜索框 -->
+    <view class='searchbox'>
+      <image class='searchicon' src='../../images/icon/search.png'></image>
+      <input class='searchinput' disabled placeholder="请选择出行路线、时间、地点"></input>
+    </view>
+    <!-- 消息通知 -->
+    <!-- <image class='messageBtn' src='../../images/icon/message.png'></image> -->
+  </view>
+
+  <!-- 广告banner -->
+  <swiper class='banner' indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image"/>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 列表 -->
+  <view wx:if="{{list.length != 0 || isLodding }}">
+      <view wx:for="{{list}}" wx:key="{{index}}" data-idx="{{item._id}}" class='list-table' bindtap='lookTripDetails'>
+      <!-- 顶部信息 -->
+      <view class='top-view'>
+        <!-- 头像+昵称 -->
+        <view class='headImgName'>
+          <image class='img' src='{{item.userInfo.avatarUrl}}'></image>
+          <text class='name'>{{item.userInfo.nickName}}</text>
+        </view>
+        <!--方向+电话 -->
+        <view class='dreicTel'>
+          <text class='direction'>{{item.startRegion[2]}}->{{item.endRegion[2]}}</text>
+          <text class='tel'>预约</text>
+        </view>
+      </view>
+      <!-- 出行路线 -->
+      <view class='trip'>
+        <view class='set-out'>
+          <text class='label'>时间：</text>
+          <text class='setOut-time'>{{dateUtil.dateFormat(item.exactDate)}}</text>
+        </view>
+        <view class='set-out'>
+          <text class='label'>人数：</text>
+          <text class='setOut-time'>{{item.peopleNumber}} 人</text>
+        </view>
+        <view class='route-line'>
+          <text class='label'>上车：</text>
+          <text class='route'>{{item.startLocation.name}} </text>
+        </view>
+        <view class='route-line'>
+          <text class='label'>下车：</text>
+          <text class='route'>{{item.endLocation.name}} </text>
+        </view>
+      </view>
+      <!-- 底部信息 -->
+      <view class='bottom-view'>
+        <text class='send-time'>备注:{{item.remarks}}</text>
+        <text class='seat'>预算：<text class='number'>{{item.budget}}</text> 元/人</text>
+      </view>
+    </view>
+
+    <view class='loddingText-view'>
+      <view wx:if="{{hasMore}}">上拉加载更多</view>
+      <view wx:else >已经到底了</view>
+    </view>
+  </view>
+  
+  <!-- 没有数据显示 -->
+  <view wx:else class='null-view'>
+    <view class='img-view'>
+      <image src='../../images/icon/null_view.jpg'></image>
+    </view>
+    <!-- <text class="text">暂无出行信息</text> -->
+  </view>
+
+  <!-- 发布信息组件 -->
+  <view class='publish-btn'>
+    <view class='right-view'></view>
+    <view class='edit-btn blod-view' bindtap='trigger'>
+      <image class='edit-icon {{status}}' src='../../images/icon/publish.png'></image>
+      <image class='close-icon {{status}}' src='../../images/icon/close.png'></image>
+    </view>
+    <!-- 人找车 -->
+    <view class='rc blod-view {{status}}'>
+      <navigator class='navigator' url='/pages/peopleLookCars/peopleLookCars'>
+        <image class='img' src='../../images/icon/rc.png'></image>
+      </navigator>
+    </view>
+    <!-- 车找人 -->
+    <view class='cr blod-view {{status}}'>
+      <navigator class='navigator' url='/pages/carsLookPeople/carLoolPeople'>
+        <image class='img' src='../../images/icon/cr.png'></image>
+      </navigator>
+    </view>
+    <!-- 爆料路况 -->
+    <view class='bl blod-view {{status}}'>
+      <image class='img' src='../../images/icon/pl.png'></image>
+    </view>
+  </view>
+
+</view>
+
+
